@@ -27,11 +27,10 @@ const append = (): string => {
   lists.forEach(item=> {
     keys.forEach(dir=> {
       if (dir == item) {
-        dir = firstLetterUpper(item)
         const subItems: string[] = fs.readdirSync(path.join(__dirname, `./${ item }`))
         let subStr = ``
         if (subItems.length) {
-          result += `\n# ${ dir } \n`
+          result += `\n# ${ firstLetterUpper(dir) } \n`
           subItems.forEach(line=> {
             subStr += `\n- [${ line }](${ gh }/${ dir }/${ line }) \n`
           })
